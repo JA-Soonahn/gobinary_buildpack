@@ -12,5 +12,6 @@ tar -C $BUILD_DEST -xf $TMP_DEST
 export PATH=$PATH:$BUILD_DEST/go/bin
 
 cd $BUILD_DIR/golang
+cd ../ext/go_insight/
 make
-ls
+cp go_insight.so ../../lib/go_insight
