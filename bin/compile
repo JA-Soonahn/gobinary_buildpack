@@ -13,3 +13,4 @@ export PATH=$PATH:$BUILD_DEST/go/bin
 
 cd $BUILD_DIR/golang
 make
+ls
