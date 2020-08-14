@@ -18,5 +18,6 @@ ln -s $BUILD_DIR/golang /app/go/src/jetinsight
 cd $BUILD_DIR/golang
 make
 cd ../ext/go_insight/
+ruby extconf.rb
 make
 cp go_insight.so ../../lib/go_insight
