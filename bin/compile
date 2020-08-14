@@ -1,5 +1,5 @@
-!#/bin/bash
+#!/bin/bash
 
-echo pwd
-cd $BUILD_DIR/golang
-echo pwd
+echo `pwd`
+cd $BUILD_DIR
+echo `pwd`
