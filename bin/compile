@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo `pwd`
+ls
+pwd
 cd $BUILD_DIR
-echo `pwd`
+pwd
 ls
