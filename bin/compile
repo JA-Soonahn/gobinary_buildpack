@@ -16,6 +16,8 @@ echo 'see these'
 ls
 echo 'i am here'
 pwd
+echo 'i see these in here'
+ls
 echo 'go in bin'
 cd bin
 echo 'i see these'
