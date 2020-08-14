@@ -1,13 +1,24 @@
 #!/bin/bash
 
-ls
+echo 'start here'
 pwd
+echo 'there are here'
+ls
+echo 'go in bin'
 cd bin
+echo 'see these'
 ls
+echo 'i am here now'
 pwd
+echo 'go to build dir'
 cd $BUILD_DIR
+echo 'see these'
 ls
+echo 'i am here'
 pwd
+echo 'go in bin'
 cd bin
+echo 'i see these'
 ls
+echo 'i am here'
 pwd
