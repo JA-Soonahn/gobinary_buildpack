@@ -2,14 +2,15 @@
 
 BUILD_DIR=$1
 
-DEST="$BUILD_DIR/vendor/go_src"
+TMP_DEST="/tmp/go.1.14.2.tar.gz"
 BUILD_DEST="$BUILD_DIR/vendor/go"
+URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
 
 cd $BUILD_DIR
 ls
 
-wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O $DEST
-tar -xz $DEST -C $BUILD_DEST
+curl -sL -f -o $TMP_DEST $URL
+tar -xz $TMP_DEST -C $BUILD_DEST
 export PATH=$PATH:$BUILD_DEST/bin
 
 go env
