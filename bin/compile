@@ -3,3 +3,4 @@
 echo `pwd`
 cd $BUILD_DIR
 echo `pwd`
+ls
