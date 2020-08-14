@@ -1,10 +1,16 @@
 #!/bin/bash
 
-wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-export PATH=$PATH:/usr/local/go/bin
+BUILD_DIR=$1
+
+DEST="$BUILD_DIR/vendor/go_src"
+BUILD_DEST="$BUILD_DIR/vendor/go"
+
+cd $BUILD_DIR
+ls
+
+wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O $DEST
+tar -xz $DEST -C $BUILD_DEST
+export PATH=$PATH:$BUILD_DEST/bin
 
 go env
 
-BUILD_DIR=$1
-cd $BUILD_DIR
-ls
