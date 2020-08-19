@@ -1,23 +1,35 @@
 #!/bin/bash
 
 BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
 
-TMP_DEST="/tmp/go.1.14.2.tar.gz"
-BUILD_DEST="$BUILD_DIR/vendor"
-URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
 
-mkdir -p $BUILD_DEST
-curl -sL -f -o $TMP_DEST $URL
-tar -C $BUILD_DEST -xf $TMP_DEST
-export PATH=$PATH:$BUILD_DEST/go/bin
+# Determine if we even need to build
+if test -f "$FILE"; then
+    CACHE_HASH=`cat $CACHE_DIR/go_insight/cache`
+    echo $CACHE_HASH
+else
+    cat 'foobar' >> $CACHE_DIR/go_insight/cache
+fi
 
-cd /app
-mkdir -p go/src
-ln -s $BUILD_DIR/golang /app/go/src/jetinsight
 
-cd $BUILD_DIR/golang
-make
-cd ../ext/go_insight/
-ruby extconf.rb
-make
-cp go_insight.so ../../lib/go_insight
+# TMP_DEST="/tmp/go.1.14.2.tar.gz"
+# BUILD_DEST="$BUILD_DIR/vendor"
+# URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
+
+# mkdir -p $BUILD_DEST
+# curl -sL -f -o $TMP_DEST $URL
+# tar -C $BUILD_DEST -xf $TMP_DEST
+# export PATH=$PATH:$BUILD_DEST/go/bin
+
+# cd /app
+# mkdir -p go/src
+# ln -s $BUILD_DIR/golang /app/go/src/jetinsight
+
+# cd $BUILD_DIR/golang
+# make
+# cd ../ext/go_insight/
+# ruby extconf.rb
+# make
+# cp go_insight.so ../../lib/go_insight
