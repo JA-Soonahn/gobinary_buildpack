@@ -11,7 +11,7 @@ if test -f "$CACHE_DIR/go_insight/cache"; then
     echo $CACHE_HASH
 else
     mkdir -p $CACHE_DIR/go_insight
-    cat 'foobar' >> $CACHE_DIR/go_insight/cache
+    echo 'foobar' >> $CACHE_DIR/go_insight/cache
 fi
 
 
