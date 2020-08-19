@@ -7,9 +7,10 @@ ENV_DIR=$3
 
 # Determine if we even need to build
 if test -f "$BUILD_DIR/.hash_check"; then
+    cd $BUILD_DIR
     md5sum --check $BUILD_DIR/.hash_check
-    echo 'the exit code wasssss'
     echo $?
+    echo 'the exit code wasssss'
 else
     mkdir -p $CACHE_DIR/go_insight
     echo 'foobar' >> $CACHE_DIR/go_insight/cache
