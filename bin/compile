@@ -9,7 +9,7 @@ ENV_DIR=$3
 if test -f "$BUILD_DIR/.hash_check"; then
     cd $BUILD_DIR
     md5sum --check $BUILD_DIR/.hash_check
-    retVal = $?
+    retVal=$?
 
     if [ $retVal -ne 0 ]; then
         echo "Files out of date, recompiling"
