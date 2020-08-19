@@ -6,23 +6,23 @@ ENV_DIR=$3
 
 
 # Determine if we even need to build
-if test -f "$CACHE_DIR/go_insight/cache"; then
-    CACHE_HASH=`cat $CACHE_DIR/go_insight/cache`
-    echo $CACHE_HASH
+if test -f "$BUILD_DIR/.hash_check"; then
+    md5sum --check $BUILD_DIR/.hash_check
+    echo 'the exit code wasssss'
+    echo $?
 else
     mkdir -p $CACHE_DIR/go_insight
     echo 'foobar' >> $CACHE_DIR/go_insight/cache
 fi
 
+TMP_DEST="/tmp/go.1.14.2.tar.gz"
+BUILD_DEST="/tmp/vendor"
+URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
 
-# TMP_DEST="/tmp/go.1.14.2.tar.gz"
-# BUILD_DEST="$BUILD_DIR/vendor"
-# URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
-
-# mkdir -p $BUILD_DEST
-# curl -sL -f -o $TMP_DEST $URL
-# tar -C $BUILD_DEST -xf $TMP_DEST
-# export PATH=$PATH:$BUILD_DEST/go/bin
+mkdir -p $BUILD_DEST
+curl -sL -f -o $TMP_DEST $URL
+tar -C $BUILD_DEST -xf $TMP_DEST
+export PATH=$PATH:$BUILD_DEST/go/bin
 
 # cd /app
 # mkdir -p go/src
