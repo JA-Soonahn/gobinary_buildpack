@@ -6,7 +6,7 @@ ENV_DIR=$3
 
 
 # Determine if we even need to build
-if test -f "$FILE"; then
+if test -f "$CACHE_DIR/go_insight/cache"; then
     CACHE_HASH=`cat $CACHE_DIR/go_insight/cache`
     echo $CACHE_HASH
 else
