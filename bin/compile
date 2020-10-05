@@ -7,44 +7,44 @@ ENV_DIR=$3
 cd $CACHE_DIR
 ls
 
-# Determine if we even need to build
-# if test -f "$CACHE_DIR"; then
-#     ls
-#     echo 'foo'
-# else
-#     if test -f "$BUILD_DIR/.hash_check"; then
-#         cd $BUILD_DIR
-#         md5sum --check $BUILD_DIR/.hash_check
-#         retVal=$?
+Determine if we even need to build
+if test -f "$CACHE_DIR"; then
+    ls
+    echo 'foo'
+else
+    if test -f "$BUILD_DIR/.hash_check"; then
+        cd $BUILD_DIR
+        md5sum --check $BUILD_DIR/.hash_check
+        retVal=$?
 
-#         if [ $retVal -ne 0 ]; then
-#             echo "Files out of date, recompiling"
+        if [ $retVal -ne 0 ]; then
+            echo "Files out of date, recompiling"
 
-#             TMP_DEST="/tmp/go.1.14.2.tar.gz"
-#             BUILD_DEST="/tmp/vendor"
-#             URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
+            TMP_DEST="/tmp/go.1.14.2.tar.gz"
+            BUILD_DEST="/tmp/vendor"
+            URL="https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz"
 
-#             mkdir -p $BUILD_DEST
-#             curl -sL -f -o $TMP_DEST $URL
-#             tar -C $BUILD_DEST -xf $TMP_DEST
-#             export PATH=$PATH:$BUILD_DEST/go/bin
+            mkdir -p $BUILD_DEST
+            curl -sL -f -o $TMP_DEST $URL
+            tar -C $BUILD_DEST -xf $TMP_DEST
+            export PATH=$PATH:$BUILD_DEST/go/bin
 
-#             cd /app
-#             mkdir -p go/src
-#             ln -s $BUILD_DIR/golang /app/go/src/jetinsight
+            cd /app
+            mkdir -p go/src
+            ln -s $BUILD_DIR/golang /app/go/src/jetinsight
 
-#             cd $BUILD_DIR/golang
-#             make
-#             cd ../ext/go_insight/
-#             ruby extconf.rb
-#             make
-#             cp go_insight.so ../../lib/go_insight
-#         else
-#             echo "Files up to date"
-#         fi
-#     else
-#         mkdir -p $CACHE_DIR/go_insight
-#         echo 'foobar' >> $CACHE_DIR/go_insight/cache
-#     fi
-# fi
+            cd $BUILD_DIR/golang
+            make
+            cd ../ext/go_insight/
+            ruby extconf.rb
+            make
+            cp go_insight.so ../../lib/go_insight
+        else
+            echo "Files up to date"
+        fi
+    else
+        mkdir -p $CACHE_DIR/go_insight
+        echo 'foobar' >> $CACHE_DIR/go_insight/cache
+    fi
+fi
 
