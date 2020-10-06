@@ -4,9 +4,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-cd $CACHE_DIR
-ls
-
 # Determine if we even need to build
 if test -f "$CACHE_DIR/go_insight.so"; then
     cp $CACHE_DIR/go_insight.so $BUILD_DIR/lib/go_insight/
