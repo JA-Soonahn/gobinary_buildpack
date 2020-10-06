@@ -7,7 +7,7 @@ ENV_DIR=$3
 cd $CACHE_DIR
 ls
 
-Determine if we even need to build
+# Determine if we even need to build
 if test -f "$CACHE_DIR/go_insight.so"; then
     cp $CACHE_DIR/go_insight.so $BUILD_DIR/lib/go_insight/
     cd $BUILD_DIR
