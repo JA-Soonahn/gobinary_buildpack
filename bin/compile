@@ -33,6 +33,7 @@ if test -f "$CACHE_DIR/go_insight.so"; then
         ruby extconf.rb
         make
         cp go_insight.so ../../lib/go_insight
+        cp go_insight.so $CACHE_DIR/
     else
         echo "Files up to date"
     fi
